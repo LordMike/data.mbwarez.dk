@@ -24,6 +24,8 @@ namespace DataSite.Controllers
 
         public ActionResult Index()
         {
+            return RedirectToAction("List", "Project");
+
             HomeIndexModel model = new HomeIndexModel();
 
             model.ProjectsCount = ProjectManager.GetCount();

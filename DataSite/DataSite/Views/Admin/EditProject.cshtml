@@ -34,20 +34,12 @@ else
         <div class="col-md-6">
             <div class="panel panel-default">
                 <div class="panel-body">
-                    @if (Model.IsNew)
-                    {
-                        <button type="submit" class="btn btn-success" name="action:save">Create</button>
-                    }
-                    else
-                    {
-                        <button type="submit" class="btn btn-primary" name="action:save">Save</button>
-                    }
-                    <button type="submit" class="btn btn-danger pull-right" name="action:delete">Delete</button>
+
                 </div>
             </div>
         </div>
     </div>
-    <div class="col-md-12">
+    <div class="col-md-9">
         <div class="panel panel-default">
             <div class="panel-heading">
                 Texts
@@ -56,6 +48,34 @@ else
                 @Html.TextAreaFor(s => s.Project.Abstract, new { @class = "form-control", @placeholder = "Abstract" })
                 <br />
                 @Html.TextAreaFor(s => s.Project.Text, new { @class = "form-control", @placeholder = "Text" })
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                Actions
+            </div>
+            <div class="panel-body">
+                @if (!Model.IsNew)
+                {
+                    @Html.ActionLink("Edit files", "EditFiles", "Admin", new { id = Model.Project.Id }, null)
+                }
+                <br />
+                <br />
+                @if (Model.IsNew)
+                {
+                    <button type="submit" class="btn btn-success" name="action:save">Create</button>
+                }
+                else
+                {
+                    <button type="submit" class="btn btn-primary" name="action:save">Save</button>
+                }
+
+                @if (!Model.IsNew)
+                {
+                    <button type="submit" class="btn btn-danger pull-right" name="action:delete">Delete</button>
+                }
             </div>
         </div>
     </div>

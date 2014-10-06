@@ -1,0 +1,47 @@
+﻿@using DataSite.Code.Models
+@model DataSite.Models.Admin.AdminEditFilesModel
+
+@{
+    ViewBag.Title = "Edit files";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Edit files, @Model.Project.Name <small>currently contains @Model.Project.Files.Count files</small></h2>
+<table class="table table-condensed">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th></th>
+            <th>Size</th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (ProjectFile file in Model.Project.Files)
+        {
+            <tr>
+                <td>@file.Name</td>
+                <td></td>
+                <td>@file.Length</td>
+                <td></td>
+                <td>@Html.ActionLink("delete", "DeleteFile", "Admin", new { id = file.Id, projectId = Model.Project.Id}, null)</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@using (Html.BeginForm("AddFile", "Admin", new { id = Model.Project.Id }, FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <div class="col-md-6">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                Add new file
+            </div>
+            <div class="panel-body">
+                <input type="file" class="form-control" name="file" />
+                <button type="submit" class="btn btn-primary">Add</button>
+            </div>
+        </div>
+    </div>
+}

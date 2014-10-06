@@ -37,10 +37,9 @@ namespace DataSite.Controllers
             if (file == null)
                 return HttpNotFound();
 
-            using (FileStream fs = System.IO.File.OpenRead(FileManager.GetFilePath(projectId, id)))
-            {
-                return new FileStreamResult(fs, "application/octect-stream");
-            }
+            FileStream fs = System.IO.File.OpenRead(FileManager.GetFilePath(projectId, id));
+            return new FileStreamResult(fs, "application/octect-stream") { FileDownloadName = file.Name };
+
         }
     }
 }

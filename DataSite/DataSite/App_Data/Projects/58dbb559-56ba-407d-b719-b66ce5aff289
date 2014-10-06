@@ -3,7 +3,7 @@
   <Id>58dbb559-56ba-407d-b719-b66ce5aff289</Id>
   <Name>Native DNS</Name>
   <TimeCreated>2014-10-06T20:50:39.255829Z</TimeCreated>
-  <TimeLastUpdate>2014-10-06T20:52:19.942588Z</TimeLastUpdate>
+  <TimeLastUpdate>2014-10-06T21:11:19.7007784Z</TimeLastUpdate>
   <Abstract>native-dns -- A replacement DNS stack for node.js</Abstract>
   <Text>[![Build Status](https://secure.travis-ci.org/tjfontaine/node-dns.png)](http://travis-ci.org/tjfontaine/node-dns)
 
@@ -276,5 +276,21 @@ Available Types:
   - `service` -- string
   - `regexp` -- string
   - `replacement` -- string</Text>
-  <Files />
+  <Files>
+    <ProjectFile>
+      <Id>1c93815c-d3b1-4bb7-90e0-cc68291884bb</Id>
+      <Name>vestervaenget.txt</Name>
+      <Length>567</Length>
+    </ProjectFile>
+    <ProjectFile>
+      <Id>dd8bd7e1-28fe-40f5-ac62-38f20a9443fc</Id>
+      <Name>sp1.rdp</Name>
+      <Length>2332</Length>
+    </ProjectFile>
+    <ProjectFile>
+      <Id>9a531b0a-8ed2-43c6-b0eb-bc76b18d83a9</Id>
+      <Name>sp2.rdp</Name>
+      <Length>2332</Length>
+    </ProjectFile>
+  </Files>
 </ProjectItem>

@@ -1,4 +1,6 @@
 using System;
+using System.IO;
+using System.Web;
 using System.Web.Mvc;
 using DataSite.Code;
 using DataSite.Code.Manager;
@@ -70,7 +72,36 @@ namespace DataSite.Controllers
 
         public ActionResult EditFiles(Guid id)
         {
+            AdminEditFilesModel model = new AdminEditFilesModel();
+
+            model.Project = ProjectManager.Get(id);
+            if (model.Project == null)
+                return RedirectToAction("Index", "Home");
+
+            return View(model);
+        }
+
+        public ActionResult DeleteFile(Guid id, Guid projectid)
+        {
             throw new NotImplementedException();
+        }
+
+        public ActionResult AddFile(Guid id)
+        {
+            if (Request.Files.Count > 0)
+            {
+                // Add file
+                HttpPostedFileBase file = Request.Files[0];
+
+                using (MemoryStream ms = new MemoryStream())
+                {
+                    file.InputStream.CopyTo(ms);
+
+                    FileManager.AddFile(id, file.FileName, Path.GetExtension(file.FileName), ms.ToArray());
+                }
+            }
+
+            return RedirectToAction("EditFiles", new { id });
         }
     }
 }

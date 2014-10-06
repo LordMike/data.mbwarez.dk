@@ -79,18 +79,18 @@ namespace DataSite.Code.Manager
             FileUtils.DeleteDirectory(dir, true);
         }
 
-        public static void AddFile(Guid id, string name, string extension, byte[] data)
+        public static void AddFile(Guid projectId, string name, string extension, byte[] data)
         {
             Guid fileId = Guid.NewGuid();
 
-            string path = GetFilePath(id, fileId);
+            string path = GetFilePath(projectId, fileId);
 
             name = Path.ChangeExtension(name, extension);
 
-            ProjectItem model = ProjectManager.Get(id);
+            ProjectItem model = ProjectManager.Get(projectId);
             model.Files.Add(new ProjectFile { Id = fileId, Name = name, Length = data.Length });
 
-            ProjectManager.Save(id, model);
+            ProjectManager.Save(projectId, model);
 
             FileUtils.SaveFile(path, data);
         }
