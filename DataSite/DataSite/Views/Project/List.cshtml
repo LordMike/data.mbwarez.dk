@@ -1,0 +1,23 @@
+﻿@using DataSite.Code.Models
+@model DataSite.Models.Project.ProjectListModel
+
+@{
+    ViewBag.Title = "Projects";
+    ViewBag.Page = "Project";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Projects <small>@Model.Projects.Count total</small></h2>
+@foreach (ProjectItem project in Model.Projects)
+{
+    <div class="col-md-6">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4>@project.Name <small>@Html.ActionLink("view", "View", "Project", new { id = project.Id }, null)</small></h4>
+            </div>
+            <div class="panel-body">
+                @project.Abstract
+            </div>
+        </div>
+    </div>
+}
