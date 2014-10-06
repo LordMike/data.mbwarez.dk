@@ -5,4 +5,58 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Admin</h2>
+@if (Model.IsNew)
+{
+    <h2>Create project</h2>
+}
+else
+{
+    <h2>Edit project <small>@Model.Project.Name</small> <small>@Html.ActionLink("view", "View", "Project", new { id = Model.Project.Id }, null)</small></h2>
+}
+
+@using (Html.BeginForm())
+{
+    <div class="col-md-12">
+        <div class="col-md-6">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    Details
+                </div>
+                <div class="panel-body">
+                    <div class="input-group">
+                        <span class="input-group-addon">Name</span>
+                        @Html.TextBoxFor(s => s.Project.Name, new { @class = "form-control", @placeholder = "Name" })
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    @if (Model.IsNew)
+                    {
+                        <button type="submit" class="btn btn-success" name="action:save">Create</button>
+                    }
+                    else
+                    {
+                        <button type="submit" class="btn btn-primary" name="action:save">Save</button>
+                    }
+                    <button type="submit" class="btn btn-danger pull-right" name="action:delete">Delete</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                Texts
+            </div>
+            <div class="panel-body">
+                @Html.TextAreaFor(s => s.Project.Abstract, new { @class = "form-control", @placeholder = "Abstract" })
+                <br />
+                @Html.TextAreaFor(s => s.Project.Text, new { @class = "form-control", @placeholder = "Text" })
+            </div>
+        </div>
+    </div>
+}

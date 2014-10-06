@@ -4,6 +4,8 @@ namespace DataSite.Models.Admin
 {
     public class AdminEditModel
     {
-        public Code.Models.ProjectItem Project { get; set; }
+        public bool IsNew { get; set; }
+
+        public ProjectItem Project { get; set; }
     }
 }

@@ -154,6 +154,7 @@
     <Compile Include="Code\Manager\ProjectManager.cs" />
     <Compile Include="Code\Models\ProjectItem.cs" />
     <Compile Include="Code\Models\ProjectFile.cs" />
+    <Compile Include="Code\MultipleButtonAttribute.cs" />
     <Compile Include="Code\Serializer.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Code\AuthorizeAdminAttribute.cs" />

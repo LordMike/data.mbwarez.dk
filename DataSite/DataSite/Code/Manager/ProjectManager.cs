@@ -70,6 +70,9 @@ namespace DataSite.Code.Manager
         {
             string path = GetPath(id);
 
+            // Update times
+            project.TimeLastUpdate = DateTime.UtcNow;
+
             using (MemoryStream ms = new MemoryStream())
             {
                 Serializer.Serialize(project).Save(ms);

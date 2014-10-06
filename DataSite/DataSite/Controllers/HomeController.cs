@@ -17,6 +17,7 @@ namespace DataSite.Controllers
             pr.Id = Guid.NewGuid();
             pr.Name = "Test project";
             pr.Files.Add(new ProjectFile { Id = Guid.NewGuid(), Name = "Testfile", Extension = ".torrent", Length = 87634 });
+            pr.TimeCreated = DateTime.UtcNow;
             pr.TimeLastUpdate = DateTime.UtcNow;
 
             ProjectManager.Save(pr.Id, pr);

@@ -23,6 +23,7 @@ namespace DataSite.Code.Models
         public ProjectItem()
         {
             Files = new List<ProjectFile>();
+            TimeCreated = DateTime.UtcNow;
         }
     }
 }
