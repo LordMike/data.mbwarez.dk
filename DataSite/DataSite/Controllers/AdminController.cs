@@ -12,7 +12,7 @@ namespace DataSite.Controllers
     {
         public ActionResult Add()
         {
-            AdminEditModel model = new AdminEditModel();
+            AdminEditProjectModel model = new AdminEditProjectModel();
 
             model.IsNew = true;
             model.Project = new ProjectItem();
@@ -20,9 +20,9 @@ namespace DataSite.Controllers
             return View("EditProject", model);
         }
 
-        public ActionResult Edit(Guid id)
+        public ActionResult EditProject(Guid id)
         {
-            AdminEditModel model = new AdminEditModel();
+            AdminEditProjectModel model = new AdminEditProjectModel();
 
             model.IsNew = false;
             model.Project = ProjectManager.Get(id);
@@ -35,7 +35,7 @@ namespace DataSite.Controllers
         [HttpPost]
         [MultipleButton(Name = "action", Argument = "save")]
         [ValidateInput(false)]
-        public ActionResult SaveEdit(Guid? id, AdminEditModel model)
+        public ActionResult EditProjectSave(Guid? id, AdminEditProjectModel model)
         {
             if (!id.HasValue)
                 id = Guid.NewGuid();
@@ -61,9 +61,14 @@ namespace DataSite.Controllers
         [HttpPost]
         [MultipleButton(Name = "action", Argument = "delete")]
         [ValidateInput(false)]
-        public ActionResult Delete(AdminEditModel model)
+        public ActionResult EditProjectDelete(AdminEditProjectModel model)
         {
             return View("EditProject", model);
+        }
+
+        public ActionResult EditFiles(Guid id)
+        {
+            throw new NotImplementedException();
         }
     }
 }

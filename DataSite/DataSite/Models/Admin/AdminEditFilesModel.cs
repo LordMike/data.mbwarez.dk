@@ -2,10 +2,8 @@
 
 namespace DataSite.Models.Admin
 {
-    public class AdminEditModel
+    public class AdminEditFilesModel
     {
-        public bool IsNew { get; set; }
-
         public ProjectItem Project { get; set; }
     }
 }

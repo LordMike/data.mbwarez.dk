@@ -163,7 +163,8 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\Admin\AdminEditModel.cs" />
+    <Compile Include="Models\Admin\AdminEditFilesModel.cs" />
+    <Compile Include="Models\Admin\AdminEditProjectModel.cs" />
     <Compile Include="Models\Home\HomeIndexModel.cs" />
     <Compile Include="Models\Project\ProjectListModel.cs" />
     <Compile Include="Models\Project\ProjectViewModel.cs" />

@@ -1,4 +1,5 @@
-﻿@using DataSite.Code.Models
+﻿@using DataSite.Code.Manager
+@using DataSite.Code.Models
 @using MarkdownSharp
 @model DataSite.Models.Project.ProjectListModel
 
@@ -8,7 +9,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Projects <small>@Model.Projects.Count total</small> <small>@Html.ActionLink("add", "Add", "Admin")</small></h2>
+<h2>Projects <small>@Model.Projects.Count total</small> @if(AdminManager.CanAdmin(Context)) { <text><small>@Html.ActionLink("add", "Add", "Admin")</small></text>}</h2>
 @{
     Markdown mkdMarkdown = new Markdown();
 
