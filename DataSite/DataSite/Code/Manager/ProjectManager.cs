@@ -81,5 +81,12 @@ namespace DataSite.Code.Manager
                 FileUtils.SaveFile(path, data);
             }
         }
+
+        public static void Delete(Guid id)
+        {
+            FileManager.RemoveAllFiles(id);
+
+            FileUtils.DeleteFile(GetPath(id));
+        }
     }
 }

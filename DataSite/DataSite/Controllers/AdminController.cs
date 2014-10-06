@@ -61,9 +61,11 @@ namespace DataSite.Controllers
         [HttpPost]
         [MultipleButton(Name = "action", Argument = "delete")]
         [ValidateInput(false)]
-        public ActionResult EditProjectDelete(AdminEditProjectModel model)
+        public ActionResult EditProjectDelete(Guid id)
         {
-            return View("EditProject", model);
+            ProjectManager.Delete(id);
+
+            return RedirectToAction("List", "Project");
         }
 
         public ActionResult EditFiles(Guid id)

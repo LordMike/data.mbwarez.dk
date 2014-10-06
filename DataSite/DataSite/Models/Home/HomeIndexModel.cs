@@ -1,7 +1,4 @@
-﻿using System;
-using System.Data;
-
-namespace DataSite.Models.Home
+﻿namespace DataSite.Models.Home
 {
     public class HomeIndexModel
     {

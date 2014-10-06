@@ -4,7 +4,6 @@ using System.Linq;
 using System.Web.Mvc;
 using DataSite.Code.Manager;
 using DataSite.Code.Models;
-using DataSite.Models.Home;
 using DataSite.Models.Project;
 
 namespace DataSite.Controllers

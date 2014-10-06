@@ -62,8 +62,7 @@ namespace DataSite.Code.Manager
 
         public static void RemoveFile(Guid id, Guid fileId)
         {
-            string dir = GetProjectDir(id);
-            string path = Path.Combine(dir, fileId.ToString());
+            string path = GetFilePath(id, fileId);
 
             ProjectItem model = ProjectManager.Get(id);
             model.Files.RemoveAll(s => s.Id == fileId);
@@ -84,8 +83,7 @@ namespace DataSite.Code.Manager
         {
             Guid fileId = Guid.NewGuid();
 
-            string dir = GetProjectDir(id);
-            string path = Path.Combine(dir, fileId.ToString());
+            string path = GetFilePath(id, fileId);
 
             name = Path.ChangeExtension(name, extension);
 

@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Web;
@@ -10,6 +9,8 @@ namespace DataSite.Code
     {
         public static string GetRealPath(string path)
         {
+            if (Path.IsPathRooted(path))
+                return path;
             return HttpContext.Current.Server.MapPath(path);
         }
 
