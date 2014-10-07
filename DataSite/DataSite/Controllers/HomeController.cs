@@ -16,5 +16,15 @@ namespace DataSite.Controllers
 
             return View(model);
         }
+
+        public ActionResult Error()
+        {
+            return View();
+        }
+
+        public ActionResult Error404()
+        {
+            return View();
+        }
     }
 }

@@ -1,6 +1,10 @@
-﻿using System.Web.Http;
+﻿using System;
+using System.Security.Principal;
+using System.Threading;
+using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Routing;
+using DataSite.Code.Manager;
 
 namespace DataSite
 {
@@ -15,6 +19,18 @@ namespace DataSite
             WebApiConfig.Register(GlobalConfiguration.Configuration);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
+        }
+
+        protected void Application_PostAuthenticateRequest(object sender, EventArgs e)
+        {
+            if (AdminManager.CanAdmin(Context))
+            {
+                //Obtain username and roles from application datastore and use them in the next line
+                Thread.CurrentPrincipal = new GenericPrincipal(
+                    new GenericIdentity("MikeKbh"),
+                    new string[] { "Elmah" }
+                );
+            }
         }
     }
 }
