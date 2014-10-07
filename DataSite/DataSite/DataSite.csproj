@@ -191,6 +191,7 @@
     <Content Include="scripts\ai.js" />
     <Content Include="scripts\ai.min.js" />
     <Content Include="Properties\DataSources\System.Xml.XmlNode.datasource" />
+    <None Include="Properties\PublishProfiles\data.mbwarez.dk.pubxml" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
